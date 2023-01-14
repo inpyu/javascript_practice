@@ -1,8 +1,14 @@
 const clock = document.querySelector("h2#clock");
 
-function sayHello(){
-    console.log("hello");
+function getClock(){
+    const date = new Date();
+    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
 }
 
+<<<<<<< HEAD
+getClock()//웹사이트 실행 후 1초 뒤 실행되는 것을 막기 위함
+setInterval(getClock, 1000);
+=======
 
-setTimeout(sayHello, 5000);
+setInterval(sayHello, 5000);
+>>>>>>> parent of 8e9ffe2 (chapter 5-1 Timeout)
