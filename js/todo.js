@@ -4,7 +4,7 @@ const toDoInput = document.querySelector("#todo-form input");
 
 const TODOS_KEY = "todos"
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos(){
     localStorage.setItem(TODOS_KEY,JSON.stringify(toDos));
@@ -13,12 +13,15 @@ function saveToDos(){
 function deleteToDo(event){
     const li = event.target.parentElement; // parentElement는 button의 위 태그, li에 해
     li.remove();
+    toDos = toDos.filter(toDo => toDo.id !==parseInt(li.id));
+    saveToDos();
 }
 
 function paintToDo(newTodo){
     const li = document.createElement("li");
+    li.id = newTodo.id;
     const span = document.createElement("span");
-    span.innerText = newTodo ;
+    span.innerText = newTodo.text ;
     const button = document.createElement("button");
     button.innerText = "X";
     button.addEventListener("click",deleteToDo)
@@ -32,8 +35,12 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value;
     toDoInput.value = ""; // toDoInput.Value 변수 초기화
-    toDos.push(newTodo);
-    paintToDo(newTodo);
+    const newTodoObj = {
+        text : newTodo,
+        id : Date.now()
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
