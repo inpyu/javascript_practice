@@ -1,3 +1,14 @@
 .hidden{
     display: none;
 }
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin{
+    min-height: 10vh;
+}
+

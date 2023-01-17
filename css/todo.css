@@ -1,0 +1,10 @@
+.todo_box{
+    align-items: center;
+    text-align: center;
+    
+}
+
+.todo{
+    text-align: center;
+    list-style: none;
+}

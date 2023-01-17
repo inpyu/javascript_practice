@@ -4,6 +4,7 @@ const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
+const ADD_CLASSNAME = "name";
 
 function onLoginSubmit(event){
     event.preventDefault();
@@ -14,8 +15,9 @@ function onLoginSubmit(event){
 }
 
 function paintGreetings(username){
-    greeting.innerText = `Hello ${username}`;
+    greeting.innerText = `${username}'s introduction`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.classList.add(ADD_CLASSNAME);
 
 }
 const savedUsername = localStorage.getItem(USERNAME_KEY);

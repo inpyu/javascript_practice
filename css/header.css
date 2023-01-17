@@ -1,0 +1,9 @@
+.head_weather{
+    display: inline-block;
+    float: left;
+}
+
+.head_clock{
+    display: inline-block;
+    float: right;
+}
